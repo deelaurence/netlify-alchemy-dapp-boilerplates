@@ -422,8 +422,8 @@ const LANDING = () => {
        
         <div className='flex items-center justify-center h-[50vh]'>
           <div>
-            <h3 className='text-4xl font-extrabold'>ONI<span className='font-thin'>CON.</span> </h3>
-            <p>CRAFTING REALITIES &mdash; BUILDING DREAMS</p>
+            <h1 className='text-4xl font-extrabold'>ONICON<span className='font-thin'> NIGERIA.</span> </h1>
+            <h2>CRAFTING REALITIES &mdash; BUILDING DREAMS</h2>
           </div>
         </div>
 

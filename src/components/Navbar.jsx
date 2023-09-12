@@ -144,9 +144,9 @@ const Navbar = ({ locationProps }) => {
       <Link to="/">
         <div
           className="flex gap-1 blend-bar-child overflow-hidden">
-          <h3
+          <a
             onClick={handleActiveWork}
-            className="self-end onicon -mb-1 font-regular text-lg">onicon.</h3>
+            className="self-end onicon -mb-1 font-regular text-lg">onicon.</a>
         </div>
       </Link>
       <div className={menu ? 'nav-menu fixed z-[99999] left-0 -top-20  bg-darkShade dark:bg-lightShade dark:text-darkShade sm:hidden' :
