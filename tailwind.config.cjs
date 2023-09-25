@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       colors: {
         darkShade: "#212121",
+        gradientShade: "#505050",
         lightShade: "#cccccc",
         playground: "#E0E0E0",
         transluscent: "#909090",

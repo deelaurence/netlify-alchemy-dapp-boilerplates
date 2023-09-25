@@ -8,6 +8,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+import {HiOutlineArrowLongRight} from 'react-icons/hi2'
 
 import { motion, useAnimation, useScroll } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -18,13 +19,18 @@ import kickz from '../assets/Kickz.webm'
 import Title from './Title';
 import roof from "../assets/webp/wooden-roof.webp"
 import landing from "../assets/webp/cover.webp"
-import bulltooth from "../assets/webp/bulltooth.webp"
-import cover from "../assets/webp/landing.webp"
 
+
+import bulltooth from "../assets/webp/bulltooth.webp"
+
+
+import cover from "../assets/webp/landing.webp"
+import projectData from '../data/projects';
 import dynamicIsland from '../assets/dynamic.webm'
 import { useLocation } from 'react-router-dom'
 import Section from './Section';
 import sectionData from '../data/sections';
+import TextnCard from './TextnCard';
 
 
 const LANDING = () => {
@@ -37,17 +43,7 @@ const LANDING = () => {
   const heroRef = useRef(null)
   const hero = heroRef.current
   
-  const settings = {
-    autoplay:true,
-    speed:4000,
-    fade:true,
-    dots:true,
-    arrows:true,
-    infinite:true,
-    slidesToShow:1,
-    slidesToScroll:1,
-   
-  }
+  
   // state={
   //   slideIndex:0,
   //   updateCount:0
@@ -59,363 +55,24 @@ const LANDING = () => {
     arrows:true,
     pauseOnHover:true,
     // autoplay:true,
-    speed:2000,
+    speed:1000,
     infinite:true,
     slidesToShow:1,
     slidesToScroll:1,
     beforeChange:(next)=>{
-      console.log(next);
-      setSlide(next+1)
+      const adjustNext=next+1
+      if(next<2){
+        setSlide(adjustNext+1)
+      }
+      else{
+        setSlide(1)
+      }
     }
   }
 
   let slideState;
 
   
-  // if(slide==1){
-  //    slideState='flex [&>*]:w-[33.3%] w-[300vw] -translate-x-[0%] opacity-[0.5] duration-[1s]'
-  //   }
-  //   else if(slide==2){
-  //   slideState='flex [&>*]:w-[33.3%] w-[300vw] -translate-x-[33.3%] duration-[1s]'
-  // }
-  // else{
-  //   slideState='flex [&>*]:w-[33.3%] w-[300vw] -translate-x-[66.6%] duration-[1s]'
-  // }
-
-  // useEffect(()=>{
-  //  const interval = setInterval(()=>{
-  //    setSlide(slide+1)
-  //     if(slide==3){
-  //       setSlide(1)
-  //     }
-  //     console.log(slide)
-  //   },2200)
-  //     return ()=> clearInterval(interval)
-  // })
-  // useEffect(() => {
-  //   //("run effect landing")
-  //   setCurrentLocation(location)
-  //   gsap.fromTo(hero, {
-  //     yPercent: 40,
-  //     opacity: 0,
-  //     skewX: "9deg",
-  //     // scale: 5,
-  //   },
-  //     {
-  //       skewX: "0deg",
-  //       // scale: 1,
-  //       yPercent: 0,
-  //       opacity: 1,
-  //       duration: 1.5,
-  //       delay: 1,
-  //       // ease: "Bounce.easeOut"
-
-  //       // scrollTrigger: {
-  //       //   trigger: hero,
-  //       //   scrub: "true"
-  //       // }
-  //     })
-  //   // gsap.fromTo(refs.current[0], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0,
-  //   //   skewX: "4deg"
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     skewX: "0deg",
-  //   //     opacity: 1,
-  //   //     duration: 1,
-  //   //     delay: 1,
-  //   //     // ease: "Bounce.easeOut",
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[0],
-  //   //     }
-  //   //   })
-  //   // gsap.fromTo(refs2.current[0], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     duration: 1.2,
-  //   //     opacity: 1,
-  //   //     delay: 3,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[0],
-  //   //     }
-  //   //   }
-  //   // )
-  //   gsap.fromTo(refs3.current[0], {
-  //     yPercent: 20,
-  //     opacity: 0,
-  //     skewX: "4deg"
-  //   },
-  //     {
-  //       yPercent: 0,
-  //       skewX: "0deg",
-  //       opacity: 1,
-  //       duration: 1,
-  //       delay: 1,
-  //       // ease: "Bounce.easeOut",
-  //       scrollTrigger: {
-  //         trigger: refs.current[0],
-  //       }
-  //     })
-
-
-  //   // gsap.fromTo(refs.current[1], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0,
-  //   //   skewX: "4deg"
-
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     skewX: "0deg",
-
-  //   //     opacity: 1,
-  //   //     duration: 1,
-  //   //     delay: 2.5,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[0],
-  //   //     }
-  //   //   })
-  //   // gsap.fromTo(refs2.current[1], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     duration: 1.2,
-  //   //     opacity: 1,
-  //   //     delay: .5,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[0],
-  //   //     }
-  //   //   }
-  //   // )
-  //   gsap.fromTo(refs3.current[1], {
-  //     yPercent: 20,
-  //     opacity: 0,
-  //     skewX: "4deg"
-
-  //   },
-  //     {
-  //       yPercent: 0,
-  //       skewX: "0deg",
-  //       opacity: 1,
-  //       duration: 1,
-  //       delay: 1,
-  //       scrollTrigger: {
-  //         trigger: refs.current[0],
-  //       }
-  //     })
-  //   // gsap.fromTo(refs.current[2], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0,
-  //   //   skewX: "4deg"
-
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     skewX: "0deg",
-  //   //     opacity: 1,
-  //   //     duration: 1,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[2],
-  //   //     }
-  //   //   })
-  //   // gsap.fromTo(refs2.current[2], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     duration: 1.2,
-  //   //     opacity: 1,
-  //   //     delay: .5,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[1],
-  //   //     }
-  //   //   }
-  //   // )
-  //   gsap.fromTo(refs3.current[2], {
-  //     yPercent: 20,
-  //     opacity: 0,
-  //     skewX: "4deg"
-
-  //   },
-  //     {
-  //       yPercent: 0,
-  //       skewX: "0deg",
-  //       opacity: 1,
-  //       delay: .8,
-  //       duration: 1,
-  //       scrollTrigger: {
-  //         trigger: refs.current[2],
-  //       }
-  //     })
-  //   // gsap.fromTo(refs.current[3], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0,
-  //   //   skewX: "4deg"
-
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     skewX: "0deg",
-
-  //   //     opacity: 1,
-  //   //     duration: 1,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[3],
-  //   //     }
-  //   //   })
-  //   // gsap.fromTo(refs2.current[3], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     duration: 1.2,
-  //   //     opacity: 1,
-  //   //     delay: .5,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[3],
-  //   //     }
-  //   //   }
-  //   // )
-  //   gsap.fromTo(refs3.current[3], {
-  //     yPercent: 20,
-  //     opacity: 0,
-  //     skewX: "4deg"
-
-  //   },
-  //     {
-  //       yPercent: 0,
-  //       skewX: "0deg",
-  //       delay: 1,
-  //       opacity: 1,
-  //       duration: 1,
-  //       scrollTrigger: {
-  //         trigger: refs.current[3],
-  //       }
-  //     })
-  //   // gsap.fromTo(refs.current[4], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0,
-  //   //   skewX: "4deg"
-
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-
-  //   //     skewX: "0deg",
-  //   //     opacity: 1,
-  //   //     duration: 1,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[4],
-  //   //     }
-  //   //   })
-  //   // gsap.fromTo(refs2.current[4], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     duration: 1.2,
-  //   //     opacity: 1,
-  //   //     delay: .5,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[4],
-  //   //     }
-  //   //   }
-  //   // )
-  //   gsap.fromTo(refs3.current[4], {
-  //     yPercent: 20,
-  //     opacity: 0,
-  //     skewX: "4deg"
-
-  //   },
-  //     {
-  //       yPercent: 0,
-
-  //       skewX: "0deg",
-  //       opacity: 1,
-  //       delay: 1.2,
-  //       duration: 1,
-  //       scrollTrigger: {
-  //         trigger: refs.current[4],
-  //       }
-  //     })
-  //   // gsap.fromTo(refs.current[5], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0,
-  //   //   skewX: "4deg"
-
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     skewX: "0deg",
-
-  //   //     opacity: 1,
-  //   //     duration: 1,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[5],
-  //   //     }
-  //   //   })
-  //   // gsap.fromTo(refs2.current[5], {
-  //   //   yPercent: 20,
-  //   //   opacity: 0
-  //   // },
-  //   //   {
-  //   //     yPercent: 0,
-  //   //     duration: 1.2,
-  //   //     opacity: 1,
-  //   //     delay: .5,
-  //   //     scrollTrigger: {
-  //   //       trigger: refs.current[5],
-  //   //     }
-  //   //   }
-  //   // )
-  //   gsap.fromTo(refs3.current[5], {
-  //     yPercent: 20,
-  //     opacity: 0,
-  //     skewX: "4deg"
-
-  //   },
-  //     {
-  //       yPercent: 0,
-  //       skewX: "0deg",
-  //       delay: 1.5,
-  //       opacity: 1,
-  //       duration: 1,
-  //       scrollTrigger: {
-  //         trigger: refs.current[5],
-  //       }
-  //     })
-
-
-  // }, [])
-  // useEffect(() => {
-  //   setCurrentLocation(location)
-  //   gsap.fromTo(hero, {
-  //     opacity: 0,
-  //   },
-  //     {
-  //       skewX: "0deg",
-  //       // scale: 1,
-  //       opacity: 1,
-  //       duration: 1,
-
-  //       // scrollTrigger: {
-  //       //   trigger: refs.current[0],
-  //       //   // scrub: "true"
-  //       // }
-  //     })
-
-
-  // }, [currentLocation])
   return (
     <>
       <section ref={heroRef} className='mt-20 overflow-hidden px-6 sm:px-16 '>
@@ -427,52 +84,68 @@ const LANDING = () => {
           </div>
         </div>
 
-        <img src={landing}  alt="" />
+        <img  className='' src={landing}  alt="" />
 
       </section>
       <section className='px-6 sm:px-16 mt-16'>
-        <Title data='A buiding construction company.'/>
+        <Title data='You deserve top tier engineering.'/>
         <Section data={sectionData[0]}/>
         <Section data={sectionData[1]}/>
       </section>
-     <Slider dots={true} className='mx-6 sm:px-16 mt-12 sm:w-1/2 h-[450px]' {...settings}>
-          <div >
-          <img className='' src={roof} alt="" />
-          </div>
-          <div>
-          <img className='' src={bulltooth} alt="" />
-          </div>
-          <div>
-          <img src={cover} alt="" />
-          </div>
-     </Slider>
-
-     <section className='mt-32 px-6 sm:px-16'>
-        <Title data="AWARDS"/>
-     </section>
-     <section className='mt-32 px-6 sm:px-16'>
+   
+        <section className='mt-32 px-6 sm:px-16'>
         <Title data="Portfolio"/>
-        <Slider dots={true} className=' mt-12 sm:w-1/2 h-[450px]' {...settings2}>
+        <Slider dots={true} className=' mt-12 sm:w-1/2 h-[400px]' {...settings2}>
+          <Link to="/all-projects/?category=building">
           <div>
-          <img className='' src={roof} alt="" />
+              <p className='pl-6 pt-24 pb-1  pr-1 opacity-75 bg-darkShade text-lightShade z-[999] absolute text-3xl'>Building.</p>
+              <img src={cover} alt="" />
           </div>
+          </Link>
+          <Link to='/all-projects/?category=civil'>
           <div>
-          <img className='' src={bulltooth} alt="" />
+              <p className='pl-6 pt-24 pb-1 pr-1 opacity-75 bg-darkShade text-lightShade z-[999] absolute text-3xl'>Civil Engineering</p>
+              <img className='' src={bulltooth} alt="" />
           </div>
+        </Link>
+        <Link to="/all-projects/?category=water">
           <div>
-          <img src={cover} alt="" />
+              <p className='pl-6 pt-24 pb-1 pr-1 opacity-75 bg-darkShade text-lightShade z-[999] absolute text-3xl'>Water / Boreholes.</p>
+              <img className='' src={roof} alt="" />
           </div>
+        </Link>
         </Slider>
         <div className='flex mt-3 items-center justify-between'>
           <div className='font-semibold text-xl'>
             ({slide}/3)
           </div>
-          <div className='flex gap-4  items-center justify-end [&>*]:h-5 [&>*]:w-5 [&>*]:rounded-full [&>*]:border-darkShade [&>*]:border-2'>
+          
+            <HiOutlineArrowLongRight className='scroll text-3xl'/>
+            <div className='flex gap-4  items-center justify-end [&>*]:h-5 [&>*]:w-5 [&>*]:rounded-full [&>*]:border-darkShade [&>*]:border-2'>
             <div className={slide==1?'bg-darkShade duration-500':"duration-500"}></div>
             <div className={slide==2?'bg-darkShade duration-500':"duration-500"}></div>
             <div className={slide==3?'bg-darkShade duration-500':"duration-500"}></div>
           </div>
         </div>
+     </section>
+
+     <section className='mt-16 px-6 sm:px-16'>
+      
+      <Title data="PROJECTS"/>
+      <Section data={sectionData[2]}/>
+      
+      {
+        projectData.slice(0,3).map((data,index)=>{
+          
+            return(
+              <TextnCard key={index} tag={data.tag} image={data.image} text={data.text} link={data.link} />
+              )
+            })
+
+      }
+      
+      <Link to="all-projects">More</Link>
+     
      </section>
     </>
   )
