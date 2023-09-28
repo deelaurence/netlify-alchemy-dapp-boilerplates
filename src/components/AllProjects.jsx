@@ -10,7 +10,6 @@ const AllProjects = () => {
 const location = useLocation()
 const urlParams=new URLSearchParams(location.search)
 const category= urlParams.get('category')
-console.log(category);
 let projectData;
 if(category){
   projectData=projectData_.filter((project)=>{
@@ -24,20 +23,22 @@ else{
   return (
     <div className='mt-32 mx-6 sm:mx-16'>
         <Title data="Selected projects"/>
-        <div className='[&>*]:border-b mt-10 flex gap-6'>
-          <Link to="/all-projects/" className={category==null?'border-b-darkShade':""}>All.</Link>
-          <Link to="/all-projects/?category=building" className={category=="building"?'border-b-darkShade':""}>Building.</Link>
-          <Link to="/all-projects/?category=water" className={category=="water"?'border-b-darkShade':""}>Water.</Link>
-          <Link to="/all-projects/?category=civil" className={category=="civil"?'border-b-darkShade':""}>Civil.</Link>
+        <div className='  mt-10 flex gap-6'>
+          <Link to="/all-projects/" className={category==null?'underline':"border-b-transparent"}>All.</Link>
+          <Link to="/all-projects/?category=civil" className={category=="civil"?'underline':""}>Civil.</Link>
+          <Link to="/all-projects/?category=building" className={category=="building"?'underline':""}>Building.</Link>
+          <Link to="/all-projects/?category=water" className={category=="water"?'underline':""}>Water.</Link>
         </div>
+        <div className='sm:flex flex-wrap  gap-[2%] [&>*]:w-[49%]   '>
        {
         projectData.map((data,index)=>{
           return(
-            <TextnCard key={index} tag={data.tag} image={data.image} text={data.text} link={data.link} />
+            <TextnCard key={index} tag={data.tag} image={data.image} subtext={data.tag} text={data.title} link={data.link} />
             )
         })
 
       }
+      </div>
     </div>
   )
 }

@@ -83,7 +83,7 @@ const Footer = ({ locationProps }) => {
   }, [currentLocation, location])
   return (
     <footer
-      className="tracking-[0.5px] mt-64  pt-24 pb-24 px-6 sm:px-16 bg-darkShade text-lightShade dark:bg-lightShade dark:text-darkShade"
+      className="tracking-[0.5px] mt-32  pt-24 pb-24 px-6 sm:px-16 bg-darkShade text-lightShade dark:bg-lightShade dark:text-darkShade"
     >
       <div ref={footerLineRef} className='bg-opaque dark:bg-darkShade h-[1px] w-full'>
       </div>
@@ -115,7 +115,7 @@ const Footer = ({ locationProps }) => {
               <a href="tel:+2348066709728">+2348066709728</a>
               <address className='not-italic'>Onicon resources limited, Toyin Building,19D Oba Adesida road Akure, Ondo State</address>
                 <div className='mt-2 flex items-center underline underline-offset-0 gap-1'>
-                <a href="">SEE ON MAP </a>
+                <a href="https://maps.app.goo.gl/4j4pVb5eJcCfErgY9?g_st=iw">SEE ON MAP </a>
                 <FiArrowUpRight className='text-xl  block rotate-["45deg"]'/>
                 </div>
               </div>

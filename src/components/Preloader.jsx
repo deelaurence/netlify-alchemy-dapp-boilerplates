@@ -1,88 +1,70 @@
 import React from 'react'
 import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react'
-import flo from "../assets/hero-img.webp"
-import alertz from "../assets/landing-alertz.webp"
-import femmina from "../assets/landing-femmina.webp"
-import mr from "../assets/landing-vr.webp"
-import threeShoe from "../assets/three-shoes.webp"
-import guild from "../assets/landing-guild.webp"
-import kodetech from "../assets/landing-kodetech.webp"
-import sea from "../assets/sea-waves.webp"
-import displayPicture from "../assets/display-picture.gif"
-import dx from "../assets/landing-dexchange.webp"
-import flo1 from "../assets/flo1.webp"
-import flo2 from "../assets/flo2.webp"
-import flo3 from "../assets/flo3.webp"
-import bud1 from "../assets/bud1.webp"
-import bud2 from "../assets/bud2.webp"
-import bud3 from "../assets/bud3.webp"
-import dribbble1 from "../assets/dribbble1.webp"
-import dribbble2 from "../assets/dribbble2.webp"
-import dribbble3 from "../assets/dribbble3.webp"
-import craiglist1 from "../assets/craiglist1.webp"
-import craiglist2 from "../assets/craiglist2.webp"
-import craiglist3 from "../assets/craiglist3.webp"
-import shoptacle1 from "../assets/shoptacle1.webp"
-import shoptacle2 from "../assets/shoptacle2.webp"
-import shoptacle3 from "../assets/shoptacle3.webp"
-import buanissimo1 from "../assets/buonnisimo1.webp"
-import buanissimo2 from "../assets/buonnisimo2.webp"
-import buanissimo3 from "../assets/buonnisimo3.webp"
-import casual from "../assets/casual.webp"
-import winniamp from "../assets/winniamp.webp"
 
-import shot1 from "../assets/shot1.webp"
-import shot2 from "../assets/shot2.webp"
-import shot3 from "../assets/shot3.webp"
-import shot4 from "../assets/shot4.webp"
-import kodetechCoffee from '../assets/kodetech-mockup.webp'
-import kodetechFlow1 from '../assets/kodetech-flow1.webp'
-import kodetechFlow2 from '../assets/kodetech-flow2.webp'
-import kodetechFlow3 from '../assets/kodetech-flow3.webp'
-import kodetechFlow4 from '../assets/kodetech-flow4.webp' 
-import kodetech1 from '../assets/kodetech1.webp' 
+import AnimationRenderer from './Lottie'
+import animationFile from '../data/animation'
 
-import kodetech2 from '../assets/kodetech2.webp'
-import kodetech3 from '../assets/kodetech3.webp'
-import alertzResponse1 from '../assets/alertz-response1.webp'
-import alertzResponse2 from '../assets/alertz-response2.webp'
-import alertzEmpathy from '../assets/alertz-empathy.webp'
-import alertzPersona from '../assets/alertz-persona.webp'
-import alertzUserflow from '../assets/alertz-userflow.webp'
-import alertzScreen from '../assets/alertz-screen.webp'
-import guildUserjourney from '../assets/guild-userjourney.webp'
-import guildUserpersona from '../assets/guild-userpersona.webp'
-import guildUserflow from '../assets/guild-userflow.webp'
-import guildScreen1 from '../assets/guild-screen1.webp'
-import guildScreen2 from '../assets/guild-screen2.webp'
-import guildScreen3 from '../assets/guild-screen3.webp'
-import guildScreen4 from '../assets/guild-screen4.webp'
-import headset from '../assets/headset.webp'
-import mrScreen1 from '../assets/mr-screen11.webp'
-import mrScreen2 from '../assets/mr-screen22.webp'
-import mrScreen3 from '../assets/mr-screen33.webp'
-import mrScreen4 from '../assets/mr-screen4.webp'
-import mrUserflow from '../assets/mr-userflow.webp'
-import kickz from '../assets/Kickz.webm'
-import dynamicIsland from '../assets/dynamic.webm'
+import hardHat from '../assets/hard-hat.png';
+import beHappieFourWebp from '../assets/webp/be-happie-four.webp';
+import beHappieOneWebp from '../assets/webp/be-happie-one.webp';
+import beHappieThreeWebp from '../assets/webp/be-happie-three.webp';
+import beHappieTwoWebp from '../assets/webp/be-happie-two.webp';
+import brickUncompletedWebp from '../assets/webp/brick_uncompleted.webp';
+import bulltoothWebp from '../assets/webp/bulltooth.webp';
+import coverWebp from '../assets/webp/cover.webp';
+import futaOneWebp from '../assets/webp/futa-one.jpg';
+import futaTwoWebp from '../assets/webp/futa-two.webp';
+import idahOneWebp from '../assets/webp/idah-one.webp';
+import ifserarThreeWebp from '../assets/webp/ifserar-three.webp';
+import ifserarTwoWebp from '../assets/webp/ifserar-two.webp';
+import motorizedBoreholeWebp from '../assets/webp/motorized-borehole.webp';
+import oauOneWebp from '../assets/webp/oau-one.webp';
+import oauThreeWebp from '../assets/webp/oau-three.webp';
+import olujiOneWebp from '../assets/webp/oluji-one.webp';
+import olujiTwoWebp from '../assets/webp/oluji-two.webp';
+import planWebp from '../assets/webp/plan.webp';
+import volleyballOneWebp from '../assets/webp/volleyball-one.webp';
+import wndpTwoWebp from '../assets/webp/wndp-two.webp';
+import crinOneJpg from '../assets/webp/crin-one.jpg';
+import crinThreeJpg from '../assets/webp/crin-three.jpg';
+import crinTwoJpg from '../assets/webp/crin-two.jpg';
+import culvertOneJpg from '../assets/webp/culvert-one.jpg';
+import culvertThreeJpg from '../assets/webp/culvert-three.jpg';
+import culvertTwoJpg from '../assets/webp/culvert-two.jpg';
+import idahTwoJpg from '../assets/webp/idah-two.jpg';
+import ifserarOneJpg from '../assets/webp/ifserar-one.jpg';
+import motorizedBoreholeJpg from '../assets/webp/motorized-borehole.jpg';
+import oauTwoJpg from '../assets/webp/oau-two.jpg';
+import olujiEightJpg from '../assets/webp/oluji-eight.jpg';
+import olujiFourJpg from '../assets/webp/oluji-four.jpg';
+import olujiSevenJpg from '../assets/webp/oluji-seven.jpg';
+import olujiSixJpg from '../assets/webp/oluji-six.jpg';
+import olujiThreeJpg from '../assets/webp/oluji-three.jpg';
+import roadConstructionFiveJpg from '../assets/webp/road-construction-five.jpg';
+import roadConstructionFourJpg from '../assets/webp/road-construction-four.jpg';
+import roadConstructionOneJpg from '../assets/webp/road-construction-one.jpg';
+import roadConstructionThreeJpg from '../assets/webp/road-construction-three.jpg';
+import roadConstructionTwoJpg from '../assets/webp/road-construction-two.jpg';
+import roadRenovationFourJpg from '../assets/webp/road-renovation-four.jpg';
+import roadRenovationOneJpg from '../assets/webp/road-renovation-one.jpg';
+import roadRenovationThreeJpg from '../assets/webp/road-renovation-three.jpg';
+import roadRenovationTwoJpg from '../assets/webp/road-renovation-two.jpg';
+import solarBoreholeJpg from '../assets/webp/solar-borehole.jpg';
+import volleyballTwoJpg from '../assets/webp/volleyball-two.jpg';
+import wndpOneJpg from '../assets/webp/wndp-one.jpg';
 
-import userPersona from '../assets/userpersona.webp'
 
 
 const Preloader = ({ pullData }) => {
-    const floRef = useRef(null)
-    const flor = floRef.current
     const seaRef = useRef(null)
     const barRef = useRef(null)
     const bar2Ref = useRef(null)
-    const sear = seaRef.current
     const location = document.location;
     const bar = barRef.current
     const bar2 = bar2Ref.current
     const text = document.querySelector('.preload-text')
     const text2 = document.querySelector('.preload-text2')
-    const threeS = document.querySelector('.three-shoes')
     const percentage = document.querySelector('.percentage')
     const clocking = document.querySelector('.clocking')
     const locationDom = document.querySelector('.location')
@@ -90,12 +72,10 @@ const Preloader = ({ pullData }) => {
     const preloadText2Ref = useRef(null)
     let [progress, setProgress] = useState([])
     const [currentLocation, setCurrentLocation] = useState('')
-    let wordsArray = ["Maya", " Dodo"]
-    let [words, setWords] = useState("")
-    let [imgLoaded, setImageLoaded] = useState(true)
+    let [imgLoaded, setImageLoaded] = useState(false)
+    let [fadeAnimation, setFadeAnimation] = useState(false)
     let [animation, setAnimation] = useState(false)
     let [status, setStatus] = useState(0)
-    // let [time, setTime] = useState('')
     let time;
     let [pseudoStatus, setPseudoStatus] = useState(0)
     pullData(imgLoaded)
@@ -115,6 +95,7 @@ const Preloader = ({ pullData }) => {
                         setImageLoaded(true)
                     }, 17000);
                     setTimeout(() => {
+                        setFadeAnimation(true)
                         percentage.innerHTML = "Hello"
                         percentage.style.transform = "translateY(-50px)"
                         percentage.style.opacity = 0
@@ -134,32 +115,23 @@ const Preloader = ({ pullData }) => {
                     }, 15000);
                 }
                 if (progress.length == domImages.length) {
-                    //("completed")
                     setTimeout(() => {
 
-                        // setImageLoaded(true)
                     }, 15000);
                 }
             })
         })
     }
     setTimeout(() => {
-        // setImageLoaded(true)
     }, 60000);
 
     if (bar) {
-        // setTimeout(() => {
-        bar.style.width = `${status / domImages.length * 98}%`
-        // bar2.style.width = `${pseudoStatus / 99 * 94}%`
-        // bar2.style.width = `${status / domImages.length * 94}%`
+        bar.style.width = `${status / domImages.length * 96}%`
 
-        // }, 1000);
     }
 
 
-    // //(text);
     useEffect(() => {
-        // setTimeout(() => {
         if (percentage) {
 
             percentage.style.transform = "translateY(0px)"
@@ -175,7 +147,6 @@ const Preloader = ({ pullData }) => {
         }
         setCurrentLocation(location)
         getImage()
-        // }, 2000);
 
         let timeLapse = setInterval(() => {
             if (pseudoStatus == 100) {
@@ -194,87 +165,38 @@ const Preloader = ({ pullData }) => {
     useEffect(() => {
         setTimeout(() => {
             gsap.fromTo(text, {
-                // xPercent: 110,
-                // skewX: "10deg",
                 opacity: "0"
             }, {
-                // xPercent: 30,
                 opacity: 1,
                 duration: 2,
 
-                // ease: "Bounce.easeOut",
                 skewX: "0deg",
             })
-            gsap.fromTo(threeS, {
-                // filter: "contrast(200%)",
-                // yPercent: 100,
-                // scale: 4,
-            }, {
-                // filter: "contrast(190%)",
-                // filter: "blur(120px)",
-                duration: 20,
-                yPercent: 100,
-                // scale: 1,
-                delay: 0,
-                repeat: -1,
-                yoyo: true,
-                // opacity: .,
-                // ease: "Bounce.easeOut",
-                skewX: "0deg",
-            })
+            
             gsap.fromTo(text, {
-                // xPercent: 10,
             }, {
-                // xPercent: 150,
                 opacity: 0,
                 duration: 3,
                 delay: 5,
-                // ease: "Bounce.easeOut",
             })
             gsap.fromTo(text2, {
-                // xPercent: 110,
                 opacity: 0,
-                // skewY: "5deg"
             }, {
-                // xPercent: 0,
                 opacity: 1,
                 duration: 2,
                 delay: 9,
-                // skewY: "0deg"
-                // ease: "Bounce.easeOut",
             })
-            // gsap.fromTo(text2, {
-            //     yPercent: -30,
-            //     // opacity: 1,
-            // }, {
-            //     yPercent: -130,
-            //     opacity: 0,
-            //     duration: 2,
-            //     delay: 12,
-            //     // ease: "Bounce.easeOut",
-            // })
-            // gsap.fromTo(text2, {
-            //     yPercent: -30,
-            // }, {
-            //     yPercent: -10,
-            //     duration: 1,
-            //     delay: 17,
-            //     // ease: "Bounce.easeOut",
-            // })
         }, 1000)
     }, [animation])
 
     const clockRef = useRef(null)
     const clock = clockRef.current
-    // let fullTime;
-    // useEffect(() => {
     const currentTime = new Date()
     const hours = currentTime.getHours()
     const minutes = currentTime.getMinutes()
     const seconds = currentTime.getSeconds()
     const day = currentTime.getDay()
     const weekdays = ["Sn", "Mn", "Tu", "Wd", "Th", "Fr", "St"]
-    // //(seconds)
     let newHour;
     let newSeconds;
     let newMinute
@@ -285,108 +207,85 @@ const Preloader = ({ pullData }) => {
     minutes < 10 ? newMinute = `0${minutes}` : newMinute = minutes
 
     let fullTime = `${weekdays[day]}/${newHour}:${newMinute}:${newSeconds} ${amPm}`
-    // setTime(fullTime)
     time = fullTime
     const clockUpdate = setInterval(() => {
-        // setTime(fullTime)
         time = fullTime
     }, 1000)
-    // return () =>
-    // clearInterval(clockUpdate)
-    // }, [time])
-    // //(fullTime);
-    // //(time);
 
     return (
-        <div className=' px-2 text-neutral-700 text-8xl font-bold h-screen w-screen bg-darkShade'>
-            <div ref={bar2Ref} className='opacity-0 h-[1px] w-[98%] absolute -translate-y-[50px] bottom-4 bar bg-neutral-700 rounded-full'></div>
-            <div ref={barRef} className='opacity-0 h-[1px] absolute bottom-4 -translate-y-[50px] bar bg-neutral-200 rounded-full'></div>
-            <p className='location -translate-y-[50px] absolute opacity-0 text-base text-neutral-500 bottom-[144px]'>\Lagos &mdash; NG</p>
-            <p ref={clockRef} className='clocking -translate-y-[50px] opacity-0 absolute text-base bottom-[164px] text-neutral-400'>{time ? `${time.toUpperCase()}` : "Calibrating Time..."}</p>
+        <div className='h-[95vh] relative px-2 text-neutral-700 text-8xl font-bold  w-screen bg-darkShade'>
+            <div  className='hidden opacity-0 h-[1px] w-[96%] absolute -translate-y-[50px] bottom-4 bar bg-neutral-700 rounded-full'></div>
+            <div ref={barRef} className='hidden opacity-0 h-[1px] absolute bottom-4 -translate-y-[50px] bar bg-neutral-200 rounded-full'></div>
+            <p className='location -translate-y-[50px] absolute opacity-0 text-base text-neutral-500 bottom-[74px]'>\Ondo &mdash; NG</p>
+            <p ref={clockRef} className='clocking -translate-y-[50px] opacity-0 absolute text-base bottom-[94px] text-neutral-400'>{time ? `${time.toUpperCase()}` : "Calibrating Time..."}</p>
 
-            <h1 className='percentage absolute -translate-y-[50px] bottom-8 text-7xl text-neutral-200' >
+            <div ref={bar2Ref} className='duration-1000'>
+
+            <AnimationRenderer style={fadeAnimation?"opacity-0":""} />
+            </div>
+            <h1 className='percentage absolute -translate-y-[50px] bottom-8 text-3xl text-neutral-200' >
                 {status ? ` ${Math.floor(progress / domImages.length * 100)}%` : "0%"}
                 {/* {status ? ` ${pseudoStatus}%` : "0%"} */}
             </h1>
-            <img className='three-shoes opacity-[.1] blur-[100px]' src={threeShoe} alt="" />
             <div ref={preloadTextRef} className='right-6 opacity-0 preload-text [&>*]:overflow-visible flex flex-col font-medium absolute overflow-visible top-4 text-white text-4xl' >
-                <p> Incepto <span className='text-neutral-500'>Ne</span></p>
-                <p>Desistam</p>
+                <p> Onicon <span className='text-neutral-500'>Resources</span></p>
+                <p>Limited.</p>
             </div>
 
             <div ref={preloadText2Ref} className='opacity-0 preload-text2 [&>*]:overflow-visible right-4 flex flex-col font-medium absolute overflow-visible top-4 text-white text-3xl' >
-                <p> May I not <span className='text-neutral-500'>shrink</span></p>
-                <p> from my <span className='text-neutral-500'>purpose</span></p>
+                <p> You  <span className='text-neutral-500'>deserve</span></p>
+                <p> Top &mdash; tier <span className='text-neutral-500'>engineering.</span></p>
             </div>
 
-            <div className={true ? "h-0 [&>*]:h-0 transition-[1s]" : "h-0 [&>*]:h-0 transition-[1s] "}>
-                <img src={flo} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={sea} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={femmina} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetech} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={mr} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={alertz} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guild} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={dx} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={displayPicture} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={flo1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={flo2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={flo3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={shot1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={shot2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={shot3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={shot4} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={bud1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={bud2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={bud3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={craiglist1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={craiglist2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={craiglist3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={shoptacle1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={shoptacle2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={shoptacle3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={winniamp} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={casual} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={buanissimo1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={buanissimo2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={buanissimo3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={dribbble1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={dribbble2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={dribbble3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={craiglist1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={craiglist2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={craiglist3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={threeShoe} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetechCoffee} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetechFlow1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetechFlow2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetechFlow3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetechFlow4} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetech1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetech2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kodetech3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={alertzResponse1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={alertzResponse2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={alertzEmpathy} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={alertzPersona} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={alertzUserflow} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={alertzScreen} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guildUserjourney} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guildUserpersona} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guildUserflow} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guildScreen1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guildScreen2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guildScreen3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={guildScreen4} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={headset} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={mrScreen1} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={mrScreen2} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={mrScreen3} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={mrScreen4} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={mrUserflow} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={userPersona} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={kickz} className='floImg -z-[100] h-10' alt="flo" />
-                <img src={dynamicIsland} className='floImg -z-[100] h-10' alt="flo" />
+            <div className="h-0 [&>*]:h-0">
+                <img src={beHappieFourWebp} className='floImg -z-[100] h-10' alt="Be Happie Four" />
+                <img src={beHappieOneWebp} className='floImg -z-[100] h-10' alt="Be Happie One" />
+                <img src={beHappieThreeWebp} className='floImg -z-[100] h-10' alt="Be Happie Three" />
+                <img src={beHappieTwoWebp} className='floImg -z-[100] h-10' alt="Be Happie Two" />
+                <img src={brickUncompletedWebp} className='floImg -z-[100] h-10' alt="Brick Uncompleted" />
+                <img src={bulltoothWebp} className='floImg -z-[100] h-10' alt="Bulltooth" />
+                <img src={coverWebp} className='floImg -z-[100] h-10' alt="Cover" />
+                <img src={futaOneWebp} className='floImg -z-[100] h-10' alt="Futa One" />
+                <img src={futaTwoWebp} className='floImg -z-[100] h-10' alt="Futa Two" />
+                <img src={idahOneWebp} className='floImg -z-[100] h-10' alt="Idah One" />
+                <img src={ifserarThreeWebp} className='floImg -z-[100] h-10' alt="Ifserar Three" />
+                <img src={ifserarTwoWebp} className='floImg -z-[100] h-10' alt="Ifserar Two" />
+                <img src={motorizedBoreholeWebp} className='floImg -z-[100] h-10' alt="Motorized Borehole" />
+                <img src={oauOneWebp} className='floImg -z-[100] h-10' alt="OAU One" />
+                <img src={oauThreeWebp} className='floImg -z-[100] h-10' alt="OAU Three" />
+                <img src={olujiOneWebp} className='floImg -z-[100] h-10' alt="Oluji One" />
+                <img src={olujiTwoWebp} className='floImg -z-[100] h-10' alt="Oluji Two" />
+                <img src={planWebp} className='floImg -z-[100] h-10' alt="Plan" />
+                <img src={volleyballOneWebp} className='floImg -z-[100] h-10' alt="Volleyball One" />
+                <img src={wndpTwoWebp} className='floImg -z-[100] h-10' alt="WNDP Two" />
+                <img src={crinOneJpg} className='floImg -z-[100] h-10' alt="Crin One" />
+                <img src={crinThreeJpg} className='floImg -z-[100] h-10' alt="Crin Three" />
+                <img src={crinTwoJpg} className='floImg -z-[100] h-10' alt="Crin Two" />
+                <img src={culvertOneJpg} className='floImg -z-[100] h-10' alt="Culvert One" />
+                <img src={culvertThreeJpg} className='floImg -z-[100] h-10' alt="Culvert Three" />
+                <img src={culvertTwoJpg} className='floImg -z-[100] h-10' alt="Culvert Two" />
+                <img src={idahTwoJpg} className='floImg -z-[100] h-10' alt="Idah Two" />
+                <img src={ifserarOneJpg} className='floImg -z-[100] h-10' alt="Ifserar One" />
+                <img src={motorizedBoreholeJpg} className='floImg -z-[100] h-10' alt="Motorized Borehole" />
+                <img src={oauTwoJpg} className='floImg -z-[100] h-10' alt="OAU Two" />
+                <img src={olujiEightJpg} className='floImg -z-[100] h-10' alt="Oluji Eight" />
+                <img src={olujiFourJpg} className='floImg -z-[100] h-10' alt="Oluji Four" />
+                <img src={olujiSevenJpg} className='floImg -z-[100] h-10' alt="Oluji Seven" />
+                <img src={olujiSixJpg} className='floImg -z-[100] h-10' alt="Oluji Six" />
+                <img src={olujiThreeJpg} className='floImg -z-[100] h-10' alt="Oluji Three" />
+                <img src={roadConstructionFiveJpg} className='floImg -z-[100] h-10' alt="Road Construction Five" />
+                <img src={roadConstructionFourJpg} className='floImg -z-[100] h-10' alt="Road Construction Four" />
+                <img src={roadConstructionOneJpg} className='floImg -z-[100] h-10' alt="Road Construction One" />
+                <img src={roadConstructionThreeJpg} className='floImg -z-[100] h-10' alt="Road Construction Three" />
+                <img src={roadConstructionTwoJpg} className='floImg -z-[100] h-10' alt="Road Construction Two" />
+                <img src={roadRenovationFourJpg} className='floImg -z-[100] h-10' alt="Road Renovation Four" />
+                <img src={roadRenovationOneJpg} className='floImg -z-[100] h-10' alt="Road Renovation One" />
+                <img src={roadRenovationThreeJpg} className='floImg -z-[100] h-10' alt="Road Renovation Three" />
+                <img src={roadRenovationTwoJpg} className='floImg -z-[100] h-10' alt="Road Renovation Two" />
+                <img src={solarBoreholeJpg} className='floImg -z-[100] h-10' alt="Solar Borehole" />
+                <img src={volleyballTwoJpg} className='floImg -z-[100] h-10' alt="Volleyball Two" />
+                <img src={wndpOneJpg} className='floImg -z-[100] h-10' alt="WNDP One" />
+                <img src={hardHat} className='floImg -z-[100] h-10' alt="hard hat" />
             </div>
         </div>
     )

@@ -9,9 +9,9 @@ const Navbar = ({ locationProps }) => {
   let html = document.querySelector("html")
   let toggle = document.querySelector('.toggle')
   const [activeWork, setActiveWork] = useState(true);
-  const [activePlayground, setActivePlayground] = useState(false);
+  const [activeProjects, setActiveProjects] = useState(false);
+  const [activeTeam, setActiveTeam] = useState(false);
   const [activeAbout, setActiveAbout] = useState(false);
-  const [activeResume, setActiveResume] = useState(false);
   const [refreshBlendBar, setRefreshBlendBar] = useState(false)
   const [currentLocation, setCurrentLocation] = useState("")
   
@@ -47,19 +47,26 @@ const Navbar = ({ locationProps }) => {
       //('about');
       setActiveAbout(true)
       setActiveWork(false)
-      setActivePlayground(false)
+      setActiveProjects(false)
       return
     }
-    if (locationProps.href.includes('playground')) {
-      //('playground active');
-      setActivePlayground(true)
+    if (locationProps.href.includes('projects')) {
+      //('Projects active');
+      setActiveProjects(true)
+      setActiveAbout(false)
+      setActiveWork(false)
+      return
+    }
+    if (locationProps.href.includes('team')) {
+      //('Projects active');
+      setActiveTeam(true)
       setActiveAbout(false)
       setActiveWork(false)
       return
     }
     else {
       setActiveAbout(false)
-      setActivePlayground(false)
+      setActiveProjects(false)
       setActiveWork(true)
       return
     }
@@ -67,18 +74,27 @@ const Navbar = ({ locationProps }) => {
 
   const handleActiveAbout = () => {
     setActiveAbout(true)
+    setActiveTeam(false)
     setActiveWork(false)
-    setActivePlayground(false)
+    setActiveProjects(false)
   }
-  const handleActivePlayground = () => {
+  const handleActiveProjects = () => {
     setActiveAbout(false)
     setActiveWork(false)
-    setActivePlayground(true)
+    setActiveTeam(false)
+    setActiveProjects(true)
   }
   const handleActiveWork = () => {
     setActiveAbout(false)
     setActiveWork(true)
-    setActivePlayground(false)
+    setActiveTeam(false)
+    setActiveProjects(false)
+  }
+  const handleActiveTeam = () => {
+    setActiveAbout(false)
+    setActiveWork(false)
+    setActiveTeam(true)
+    setActiveProjects(false)
   }
 
   useEffect(() => {
@@ -95,29 +111,9 @@ const Navbar = ({ locationProps }) => {
   // //(blendBar);
 
 
-  // //(locationProps);
-  // const handleNightMode = () => {
-  //   setNight(!night)
-  //   //('niiight');
-  // }
-
-  // if (night) {
-  //   html.classList.add("dark")
-  //   // toggle.src = moon
-
-  // }
-  // if (!night) {
-  //   html.classList.remove("dark")
-  //   // toggle.src = sun
-  // }
-
+  
   const [menu, setMenu] = useState(false)
-  // useEffect(() => {
-  //   if (blendBar) {
-
-  //     blendBar.style.mixBlendMode = "difference"
-  //   }
-  // }, [])
+  
   const hideMenu = () => {
     setMenu(false)
     setTimeout(() => {
@@ -144,9 +140,9 @@ const Navbar = ({ locationProps }) => {
       <Link to="/">
         <div
           className="flex gap-1 blend-bar-child overflow-hidden">
-          <a
+          <p
             onClick={handleActiveWork}
-            className="self-end onicon -mb-1 font-regular text-lg">onicon.</a>
+            className="self-end onicon -mb-1 font-regular text-lg">onicon.</p>
         </div>
       </Link>
       <div className={menu ? 'nav-menu fixed z-[99999] left-0 -top-20  bg-darkShade dark:bg-lightShade dark:text-darkShade sm:hidden' :
@@ -171,19 +167,22 @@ const Navbar = ({ locationProps }) => {
 
 
       <div className="hidden sm:flex  gap-10 [&>*]:dark:bg-lightShade [&>*]:dark:text-darkShade self-end ">
-        <div className='relative'>
-        <div className={activeWork?'bg-white h-[1px]   w-full transition-[1.5s] absolute top-[50%]':'bg-white h-[1px] w-full translate-x-full transition-[1.5s] absolute top-[50%]'}></div>
-        <p onClick={handleActiveWork} className={activeWork ? 'text-white text-sm font-regular ' : ' text-sm font-regular text-opaque'} ><Link to='/'>HOME</Link></p>
+        <div className='relative pr-2'>
+        <div className={activeWork?'bg-blue-400 h-2 w-2 rounded-full  transition-[1.5s] absolute top-[40%] right-0':'bg-blue-400 h-[2px] w-full translate-x-full transition-[1.5s] absolute top-[55%]'}></div>
+        <p onClick={handleActiveWork} className={activeWork ? 'text-white text-sm font-medium ' : ' text-sm font-regular text-opaque'} ><Link to='/'>HOME</Link></p>
         </div>
-        <div className='relative'>
-        <div className={activePlayground?'bg-white h-[1px] w-full transition-[1.5s] absolute top-[50%]':'bg-white h-[1px] w-full translate-x-full transition-[1.5s] absolute top-[50%]'}></div>
-        <p onClick={handleActivePlayground} className={activePlayground ? 'text-sm font-regular text-white ' : ' text-sm font-regular text-opaque'} ><Link to='/playground'>BUILDING CONSTRUCTIONS</Link></p>
+        <div className='relative pr-2'>
+        <div className={activeProjects?'bg-blue-400 h-2 w-2 rounded-full  transition-[1.5s] absolute top-[40%] right-0':'bg-blue-400 h-[2px] w-full translate-x-full transition-[1.5s] absolute top-[55%]'}></div>
+        <p onClick={handleActiveProjects} className={activeProjects ? 'text-sm font-medium text-white ' : ' text-sm font-regular text-opaque'} ><Link to='/all-projects'>PROJECTS</Link></p>
         </div>
-        <div className='relative'>
-        <div className={activeAbout?'bg-white h-[1px] w-full transition-[1.5s] absolute top-[50%]':'bg-white h-[1px] w-full translate-x-full transition-[1.5s] absolute top-[50%]'}></div>
-        <p onClick={handleActiveAbout} className={activeAbout ? 'text-sm font-regular text-white ' : ' text-sm font-regular text-opaque'} ><Link to='/about'>ABOUT US</Link></p>
+        <div className='relative pr-2'>
+        <div className={activeTeam?'bg-blue-400 h-2 w-2 rounded-full  transition-[1.5s] absolute top-[40%] right-0':'bg-blue-400 h-[2px] w-full translate-x-full transition-[1.5s] absolute top-[55%]'}></div>
+        <p onClick={handleActiveTeam} className={activeTeam ? 'text-sm font-medium text-white ' : ' text-sm font-regular text-opaque'} ><Link to='/team'>TEAM</Link></p>
         </div>
-        <p className={activeResume ? 'text-sm font-regular text-lightShade ' : ' text-sm font-regular text-opaque'} ><Link to='/resume'>CONTACT US</Link></p>
+        <div className='relative pr-2'>
+        <div className={activeAbout?'bg-blue-400 h-2 w-2 rounded-full  transition-[1.5s] absolute top-[40%] right-0':'bg-blue-400 h-[2px] w-full translate-x-full transition-[1.5s] absolute top-[55%]'}></div>
+        <p onClick={handleActiveAbout} className={activeAbout ? 'text-sm font-medium text-white ' : ' text-sm font-regular text-opaque'} ><Link to='/about'>ABOUT US</Link></p>
+        </div>
       </div>
       </div>
     </nav>

@@ -1,6 +1,16 @@
 
 const staffsData = [
     {
+        name: "ENGR. ONI TEMITOPE",
+        qualification: "HND Building, B.Sc Construction Management, PGD Civil Engineering",
+        graduating: "Building Technology, Federal polytechnic, Ado-Ekiti",
+        coren: "COREN Engr.",
+        designation: "Managing Director/Chief Executive Officer",
+        age: "50 Years",
+        professionalExperience: "32 Years",
+        link: "/manager"
+    },
+    {
         name: "ENGR. FRANCIS OLAOLUWA EGUNJOBI",
         qualification: "M.Eng in Civil Engineering, VDI, Reg",
         graduating: "HND, PGD, APD-Germany (Structures), MNSE",
@@ -8,6 +18,14 @@ const staffsData = [
         designation: "Project Director",
         age: "50 Years",
         professionalExperience: "32 Years"
+    },
+    {
+        name: "AJETUNMOBI TEMITOPE LIZZY",
+        qualification: "B.ED (Guidance and Counseling)",
+        graduating: "Ekiti State University, Ado - Ekiti",
+        designation: "Administrative Director",
+        Age: "36 years",
+        professionalExperience: "10 years",
     },
     {
         name: "ENGR. ILEYEMI OLUWADAYOMI",

@@ -10,7 +10,7 @@ const urlParams=new URLSearchParams(location_.search)
 const titleQuery = urlParams.get('title')
 const specificData=projectData[titleQuery]
 const{
-    text,image,tag,location,client,title
+    text,image,imageTwo,imageThree,imageFour,imageFive,imageSix,tag,location,client,title
 }=specificData
 
 return (
@@ -25,6 +25,14 @@ return (
         {/* <img className='mt-6' src={imageTwo} alt={imageOne} /> */}
         <img className='mt-6' src={image} alt={image} />
         < Section data={{title,body:text}}/>
+        <div className='relative mt-6'>
+        {imageTwo&&<div className='absolute w-full pb-3 text-center font medium italic -top-[1px] bg-lightShade'>{imageTwo.caption}</div>}
+        {imageTwo&&<img className='border-8 ' src={imageTwo.src} alt={image} />}
+        {imageThree&&<img className='  mt-4' src={imageThree} alt={image} />}
+        {imageFour&&<img className='  mt-4' src={imageFour} alt={image} />}
+        {imageFive&&<img className='  mt-4' src={imageFive} alt={image} />}
+        {imageSix&&<img className='  mt-4' src={imageSix} alt={image} />}
+        </div>
     </div>
   )
 }
