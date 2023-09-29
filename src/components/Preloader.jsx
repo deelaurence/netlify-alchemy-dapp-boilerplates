@@ -66,6 +66,7 @@ const Preloader = ({ pullData }) => {
     const text = document.querySelector('.preload-text')
     const text2 = document.querySelector('.preload-text2')
     const percentage = document.querySelector('.percentage')
+    const fetching = document.querySelector('.fetching')
     const clocking = document.querySelector('.clocking')
     const locationDom = document.querySelector('.location')
     const preloadTextRef = useRef(null)
@@ -94,12 +95,14 @@ const Preloader = ({ pullData }) => {
                     
                     setTimeout(() => {
                         setImageLoaded(true)
-                    }, 17000);
+                    }, 10000);
                     setTimeout(() => {
                         setFadeAnimation(true)
                         percentage.innerHTML = "Hello"
                         percentage.style.transform = "translateY(-50px)"
+                        fetching.style.transform = "translateY(-50px)"
                         percentage.style.opacity = 0
+                        fetching.style.opacity = 0
                         bar.style.width = "94%"
                         bar.style.transform = "translateY(-50px)"
                         bar2.style.transform = "translateY(-50px)"
@@ -113,7 +116,7 @@ const Preloader = ({ pullData }) => {
                         text2.style.opacity = 0
                         text2.style.transform = "translateY(-100px)"
                         text2.style.transition = "2s"
-                    }, 15000);
+                    }, 9000);
                 }
                 if (progress.length == domImages.length) {
                     setTimeout(() => {
@@ -224,7 +227,7 @@ const Preloader = ({ pullData }) => {
 
             <AnimationRenderer style={fadeAnimation?"opacity-0":""} />
             </div>
-            <p className='text-lg text-white opacity-50 font-thin absolute bottom-[184px]'>Fetching resources please wait...</p>
+            <p className='text-lg duration-500 fetching text-white opacity-50 font-thin absolute bottom-[184px]'>Fetching resources please wait...</p>
             <h1 className='percentage absolute -translate-y-[50px] bottom-[60px] text-4xl text-neutral-200' >
                 {status ? ` ${Math.floor(progress / domImages.length * 100)}%` : "0%"}
                 {/* {status ? ` ${pseudoStatus}%` : "0%"} */}
