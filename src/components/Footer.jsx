@@ -118,6 +118,7 @@ const Footer = ({ locationProps }) => {
                 <a href="https://maps.app.goo.gl/4j4pVb5eJcCfErgY9?g_st=iw">SEE ON MAP </a>
                 <FiArrowUpRight className='text-xl  block rotate-["45deg"]'/>
                 </div>
+              
               </div>
             </div>
           </div>
