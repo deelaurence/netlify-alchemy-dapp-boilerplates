@@ -92,7 +92,7 @@ const Preloader = ({ pullData }) => {
             
                 if (progress.length / domImages.length * 100 > 90) {
                     setTimeout(() => {
-                        setImageLoaded(true)
+                        // setImageLoaded(true)
                     }, 17000);
                     setTimeout(() => {
                         setFadeAnimation(true)
@@ -216,14 +216,14 @@ const Preloader = ({ pullData }) => {
         <div className='h-[95vh] relative px-2 text-neutral-700 text-8xl font-bold  w-screen bg-darkShade'>
             <div  className='hidden opacity-0 h-[1px] w-[96%] absolute -translate-y-[50px] bottom-4 bar bg-neutral-700 rounded-full'></div>
             <div ref={barRef} className='hidden opacity-0 h-[1px] absolute bottom-4 -translate-y-[50px] bar bg-neutral-200 rounded-full'></div>
-            <p className='location -translate-y-[50px] absolute opacity-0 text-base text-neutral-500 bottom-[74px]'>\Ondo &mdash; NG</p>
-            <p ref={clockRef} className='clocking -translate-y-[50px] opacity-0 absolute text-base bottom-[94px] text-neutral-400'>{time ? `${time.toUpperCase()}` : "Calibrating Time..."}</p>
+            <p className='location -translate-y-[50px] absolute opacity-0 text-base text-neutral-500 bottom-[154px]'>\Ondo &mdash; NG</p>
+            <p ref={clockRef} className='clocking -translate-y-[50px] opacity-0 absolute text-base bottom-[174px] text-neutral-400'>{time ? `${time.toUpperCase()}` : "Calibrating Time..."}</p>
 
             <div ref={bar2Ref} className='duration-1000'>
 
             <AnimationRenderer style={fadeAnimation?"opacity-0":""} />
             </div>
-            <h1 className='percentage absolute -translate-y-[50px] bottom-8 text-3xl text-neutral-200' >
+            <h1 className='percentage absolute -translate-y-[50px] bottom-[120px] text-3xl text-neutral-200' >
                 {status ? ` ${Math.floor(progress / domImages.length * 100)}%` : "0%"}
                 {/* {status ? ` ${pseudoStatus}%` : "0%"} */}
             </h1>
