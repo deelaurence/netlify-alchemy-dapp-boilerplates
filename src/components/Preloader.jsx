@@ -92,7 +92,7 @@ const Preloader = ({ pullData }) => {
             
                 if (progress.length / domImages.length * 100 > 90) {
                     setTimeout(() => {
-                        // setImageLoaded(true)
+                        setImageLoaded(true)
                     }, 17000);
                     setTimeout(() => {
                         setFadeAnimation(true)
