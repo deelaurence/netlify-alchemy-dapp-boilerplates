@@ -72,7 +72,7 @@ const Preloader = ({ pullData }) => {
     const preloadText2Ref = useRef(null)
     let [progress, setProgress] = useState([])
     const [currentLocation, setCurrentLocation] = useState('')
-    let [imgLoaded, setImageLoaded] = useState(true)
+    let [imgLoaded, setImageLoaded] = useState(false)
     let [fadeAnimation, setFadeAnimation] = useState(false)
     let [animation, setAnimation] = useState(false)
     let [status, setStatus] = useState(0)
