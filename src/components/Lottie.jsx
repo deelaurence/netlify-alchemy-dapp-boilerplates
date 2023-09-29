@@ -21,8 +21,7 @@ const AnimationRenderer = ({className}) => {
       };
     }
   }, []);
-console.log(className)
-  return <div className={`${className} mt-32`} id="animation-container" />;
+  return <div className={`${className} mt-32 sm:mt-0 sm:mb-12`} id="animation-container" />;
 };
 
 export default AnimationRenderer;
