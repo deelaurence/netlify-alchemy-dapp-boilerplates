@@ -95,24 +95,20 @@ const Footer = ({ locationProps }) => {
           Are you looking for an efficient enginnering firm?
         </h3> */}
         <section className='md:flex md:justify-between'>
-          <div ref={contactRef}>
-            <p className='text-opaque mt-12 md:mt-24 mb-3'>
-              Contact.
-            </p>
-            <a className='font-medium' href="mailto:hr-onicon.ng@outlook.com underline border-b">hr-onicon.ng@outlook.com</a>
-          </div>
+          
           <div ref={connectRef}>
             <p className='text-opaque mt-16 mb-3'>
               Country Locations.
             </p>
 
-
-            <div className='flex font-medium gap-6 flex-col'>
-             <h3 className='font-semibold'>AKURE</h3>
+        <div className='flex flex-col justify-between gap-12 sm:gap-6 sm:flex-row'>
+            <div className='flex sm:w-[40%] font-medium gap-6 flex-col'>
+             <h3 className='font-semibold opacity-70'>AKURE</h3>
 
             <div className='flex flex-col gap-2'>
               <a className='font-medium underline' href="mailto:hr-onicon.ng@outlook.com underline border-b">hr-onicon.ng@outlook.com</a>
               <a href="tel:+2348066709728">+2348066709728</a>
+              <a href="tel:+2348069698695">+2348069698695</a>
               <address className='not-italic'>Onicon resources limited, Toyin Building,19D Oba Adesida road Akure, Ondo State</address>
                 <div className='mt-2 flex items-center underline underline-offset-0 gap-1'>
                 <a href="https://maps.app.goo.gl/4j4pVb5eJcCfErgY9?g_st=iw">SEE ON MAP </a>
@@ -121,6 +117,18 @@ const Footer = ({ locationProps }) => {
               
               </div>
             </div>
+            <div className='flex sm:w-[40%] font-medium gap-6 flex-col'>
+             <h3 className='font-semibold opacity-70'>ABUJA</h3>
+
+            <div className='flex flex-col gap-2'>
+              <a className='font-medium underline' href="mailto:hr-onicon.ng@outlook.com underline border-b">hr-onicon.ng@outlook.com</a>
+              <address className='not-italic'>Suite 31B, Danziyac Plaza, Central Business District, Abuja-Nigeria</address>
+                <div className='mt-2 flex items-center underline underline-offset-0 gap-1'>
+                </div>
+              
+              </div>
+            </div>
+        </div>
           </div>
         </section>
         <section>
