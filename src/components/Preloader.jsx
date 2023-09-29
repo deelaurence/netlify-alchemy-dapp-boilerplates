@@ -91,7 +91,7 @@ const Preloader = ({ pullData }) => {
                 setStatus(progress.length)
             
                 if (progress.length / domImages.length * 100 > 90) {
-                    return
+                    
                     setTimeout(() => {
                         setImageLoaded(true)
                     }, 17000);
