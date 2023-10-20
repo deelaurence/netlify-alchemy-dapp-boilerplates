@@ -228,10 +228,10 @@ const Preloader = ({ pullData }) => {
             <AnimationRenderer style={fadeAnimation?"opacity-0":""} />
             </div>
             <p className='text-lg duration-500 fetching text-white opacity-50 font-thin absolute bottom-[184px]'>Fetching resources please wait...</p>
-            <h1 className='percentage absolute -translate-y-[50px] bottom-[60px] text-4xl text-neutral-200' >
+            <p className='percentage absolute -translate-y-[50px] bottom-[60px] text-4xl text-neutral-200' >
                 {status ? ` ${Math.floor(progress / domImages.length * 100)}%` : "0%"}
                 {/* {status ? ` ${pseudoStatus}%` : "0%"} */}
-            </h1>
+            </p>
             <div ref={preloadTextRef} className='right-6 opacity-0 preload-text [&>*]:overflow-visible flex flex-col font-medium absolute overflow-visible top-4 text-white text-4xl' >
                 <p> Onicon <span className='text-neutral-500'>Resources</span></p>
                 <p>Limited.</p>
