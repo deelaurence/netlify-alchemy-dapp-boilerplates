@@ -10,9 +10,9 @@ const Team = () => {
     return (
 <section className='mt-32 mx-6 sm:mx-16'>
 <div className='relative '>
-<h1 className='text-5xl font-black mb-16'>
+<h2 className='text-5xl font-black mb-16'>
     OUR&mdash;TEAM.
-</h1>
+</h2>
 <div className='flex flex-wrap items-center justify-between'>
 
 <img className='sm:w-[50vh]' src={hardHat} alt="yellow hard hat"  />
@@ -24,7 +24,7 @@ const Team = () => {
     staffsData.map((staff,index)=>{
         return(
             <div key={index} className='text-lg mt-20 sm:w-[45%]'>
-                <h1 className='text-2xl font-semibold  border-darkShade mb-4  max-w-fit'>{staff.designation}</h1>
+                <h3 className='text-2xl font-semibold  border-darkShade mb-4  max-w-fit'>{staff.designation}</h3>
                 <p className= {staff.name.includes('ONI')? 'text-2xl font-bold':"text-lg font-semibold"}>{staff.name}</p>
                 <p className='italic'>{staff.qualification}</p>
                 <p className='italic'>{staff.graduating}</p>
