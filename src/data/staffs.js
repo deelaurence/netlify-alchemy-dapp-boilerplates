@@ -25,7 +25,7 @@ const staffsData = [
         graduating: "Ekiti State University, Ado - Ekiti",
         designation: "Administrative Director",
         Age: "36 years",
-        professionalExperience: "10 years",
+        professionalExperience: "8 years",
     },
     {
         name: "ENGR. ILEYEMI OLUWADAYOMI",
