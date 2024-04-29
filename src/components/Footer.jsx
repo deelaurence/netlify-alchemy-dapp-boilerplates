@@ -106,7 +106,7 @@ const Footer = ({ locationProps }) => {
              <h3 className='font-semibold opacity-70'>AKURE</h3>
 
             <div className='flex flex-col gap-2'>
-              <a className='font-medium underline' href="mailto:hr-onicon.ng@outlook.com underline border-b">hr-onicon.ng@outlook.com</a>
+              <a className='font-medium underline' href="mailto:management@onicon.com.ng underline border-b">management@onicon.com.ng</a>
               <a href="tel:+2348066709728">+2348066709728</a>
               <a href="tel:+2349055566439">+2349055566439</a>
               <address className='not-italic'>Onicon resources limited, First Floor, Toyin Building, 46,
