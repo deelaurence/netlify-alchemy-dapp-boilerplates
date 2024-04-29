@@ -122,7 +122,7 @@ const Footer = ({ locationProps }) => {
              <h3 className='font-semibold opacity-70'>ABUJA</h3>
 
             <div className='flex flex-col gap-2'>
-              <a className='font-medium underline' href="mailto:hr-onicon.ng@outlook.com underline border-b">hr-onicon.ng@outlook.com</a>
+              <a className='font-medium underline' href="mailto:management@onicon.com.ng underline border-b">management@onicon.com.ng</a>
               <address className='not-italic'>Suite 31B, Danziyac Plaza, Central Business District, Abuja-Nigeria</address>
                 <div className='mt-2 flex items-center underline underline-offset-0 gap-1'>
                 </div>
